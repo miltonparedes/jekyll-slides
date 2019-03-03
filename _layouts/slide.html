@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{ page.title }} &mdash; {{ site.title }}</title>
+    <meta name="author" content="{{ site.author }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ site.url }}/assets/reveal/css/reveal.css">
+    <link rel="stylesheet" href="{{ site.url }}/assets/reveal/css/theme/{{ page.theme }}.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="{{ site.url }}/assets/reveal/lib/css/styles/{{ page.syntax_theme }}.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Roboto" rel="stylesheet">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '{{ site.url }}/assets/reveal/css/print/pdf.css' : '{{ site.url }}/assets/reveal/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="{{ site.url }}/lib/js/html5shiv.js"></script>
+    <![endif]-->
+		{% if page.style %}
+		<link rel="stylesheet" href="{{ site.url }}{{ page.url }}style.css">
+		{% endif %}
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="<hr />">
+          <script type="text/template">
+            {{ content }}
+          </script>
+        </section>
+      </div>
+    </div>
+
+    <script src="{{ site.url }}/assets/reveal/lib/js/head.min.js"></script>
+    <script src="{{ site.url }}/assets/reveal/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        dependencies: [
+          { src: '{{ site.url }}/assets/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '{{ site.url }}/assets/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{ site.url }}/assets/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{ site.url }}/assets/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '{{ site.url }}/assets/reveal/plugin/search/search.js', async: true },
+          { src: '{{ site.url }}/assets/reveal/plugin/zoom-js/zoom.js', async: true },
+          { src: '{{ site.url }}/assets/reveal/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+		<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"><defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix><feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite></filter></defs></svg>
+  </body>
+</html>
