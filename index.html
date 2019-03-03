@@ -1,0 +1,22 @@
+---
+layout: default
+title: Home
+---
+{% assign sorted = site.slides | sort: 'date' | reverse %}
+{% for slide in sorted %}
+  {% if slide.category %}
+    {% assign category = slide.category %}
+    {% if category != myCategory %}
+      {% unless forloop.first %}</ul></ul>{% endunless %}
+      {% assign id_category = category | replace: " ", "-" %}
+      {% assign info_category = site.data.categories[id_category] %}
+      <ul>
+        <h3>{{ category | capitalize }}</h3>
+        <ul>
+      {% assign myCategory = category %}
+    {% endif %}
+    {% if slide.category == category %}
+    <li><a href="{{ site.url }}{{ slide.url }}" target="_blank">{{ slide.title }}</a></li>
+    {% endif %}
+  {% endif %}
+{% endfor %}
