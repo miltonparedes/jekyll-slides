@@ -1,2 +1,3 @@
 # jekyll-slides
-Cool slides on GitHub Pages. Jekyll + Reveal.JS = :heart:
+### Cool slides on GitHub Pages. Jekyll + Reveal.JS.
+---
