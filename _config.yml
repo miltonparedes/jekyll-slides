@@ -1,0 +1,42 @@
+title: jekyll-slides
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://miltonolaf.com/jekyll-slides" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+highlighter: none
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
+
+collections:
+  slides:
+    output: true
+    permalink: /:categories/:year/:month/:title/
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: slides
+    values:
+      layout: slide
+      theme: black
+      syntax_theme: atom-one-dark
+
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
